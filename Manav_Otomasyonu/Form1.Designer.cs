@@ -30,21 +30,21 @@
         {
             this.tcManav = new System.Windows.Forms.TabControl();
             this.tpCustomer = new System.Windows.Forms.TabPage();
+            this.grdCustomers = new System.Windows.Forms.DataGridView();
             this.tpProduct = new System.Windows.Forms.TabPage();
+            this.grdProducts = new System.Windows.Forms.DataGridView();
             this.tpCategories = new System.Windows.Forms.TabPage();
+            this.grdCategories = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnNew = new System.Windows.Forms.Button();
-            this.grdCustomers = new System.Windows.Forms.DataGridView();
-            this.grdProducts = new System.Windows.Forms.DataGridView();
-            this.grdCategories = new System.Windows.Forms.DataGridView();
             this.tcManav.SuspendLayout();
             this.tpCustomer.SuspendLayout();
-            this.tpProduct.SuspendLayout();
-            this.tpCategories.SuspendLayout();
-            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).BeginInit();
+            this.tpProduct.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdProducts)).BeginInit();
+            this.tpCategories.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCategories)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcManav
@@ -70,6 +70,16 @@
             this.tpCustomer.Text = "Müşteriler";
             this.tpCustomer.UseVisualStyleBackColor = true;
             // 
+            // grdCustomers
+            // 
+            this.grdCustomers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdCustomers.Location = new System.Drawing.Point(3, 3);
+            this.grdCustomers.Name = "grdCustomers";
+            this.grdCustomers.Size = new System.Drawing.Size(786, 418);
+            this.grdCustomers.TabIndex = 0;
+            // 
             // tpProduct
             // 
             this.tpProduct.Controls.Add(this.grdProducts);
@@ -81,6 +91,16 @@
             this.tpProduct.Text = "Ürünler";
             this.tpProduct.UseVisualStyleBackColor = true;
             // 
+            // grdProducts
+            // 
+            this.grdProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdProducts.Location = new System.Drawing.Point(3, 3);
+            this.grdProducts.Name = "grdProducts";
+            this.grdProducts.Size = new System.Drawing.Size(786, 418);
+            this.grdProducts.TabIndex = 1;
+            // 
             // tpCategories
             // 
             this.tpCategories.Controls.Add(this.grdCategories);
@@ -91,6 +111,16 @@
             this.tpCategories.TabIndex = 2;
             this.tpCategories.Text = "Kategoriler";
             this.tpCategories.UseVisualStyleBackColor = true;
+            // 
+            // grdCategories
+            // 
+            this.grdCategories.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grdCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.grdCategories.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdCategories.Location = new System.Drawing.Point(3, 3);
+            this.grdCategories.Name = "grdCategories";
+            this.grdCategories.Size = new System.Drawing.Size(786, 418);
+            this.grdCategories.TabIndex = 1;
             // 
             // panel1
             // 
@@ -111,33 +141,6 @@
             this.BtnNew.UseVisualStyleBackColor = true;
             this.BtnNew.Click += new System.EventHandler(this.BtnNew_Click);
             // 
-            // grdCustomers
-            // 
-            this.grdCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdCustomers.Location = new System.Drawing.Point(3, 3);
-            this.grdCustomers.Name = "grdCustomers";
-            this.grdCustomers.Size = new System.Drawing.Size(786, 418);
-            this.grdCustomers.TabIndex = 0;
-            // 
-            // grdProducts
-            // 
-            this.grdProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdProducts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdProducts.Location = new System.Drawing.Point(3, 3);
-            this.grdProducts.Name = "grdProducts";
-            this.grdProducts.Size = new System.Drawing.Size(786, 418);
-            this.grdProducts.TabIndex = 1;
-            // 
-            // grdCategories
-            // 
-            this.grdCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.grdCategories.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grdCategories.Location = new System.Drawing.Point(3, 3);
-            this.grdCategories.Name = "grdCategories";
-            this.grdCategories.Size = new System.Drawing.Size(786, 418);
-            this.grdCategories.TabIndex = 1;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,15 +149,16 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tcManav);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Manav Otomasyonu";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tcManav.ResumeLayout(false);
             this.tpCustomer.ResumeLayout(false);
-            this.tpProduct.ResumeLayout(false);
-            this.tpCategories.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).EndInit();
+            this.tpProduct.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdProducts)).EndInit();
+            this.tpCategories.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grdCategories)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
