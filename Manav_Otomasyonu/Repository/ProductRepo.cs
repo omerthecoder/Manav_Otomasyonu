@@ -62,7 +62,35 @@ namespace Manav_Otomasyonu.Repository
 
         public Product GetById(int id)
         {
-            throw new NotImplementedException();
+            Product product = new Product();
+            try
+            {
+                SqlCommand command = new SqlCommand("select ProductID,ProductName,CategoryID,UnitPrice,UnitsInStock from Product where ProductID=@ProductID", this.con);
+                command.Parameters.AddWithValue("@ProductID", id);
+                if (this.con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    product = ProductMapping(reader);
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (this.con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return product;
         }
 
         public int Update(Product item)

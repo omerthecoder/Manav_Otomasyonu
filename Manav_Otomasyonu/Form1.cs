@@ -33,6 +33,12 @@ namespace Manav_Otomasyonu
                 cf.ShowDialog();
                 FillCustomerGrid();
             }
+            else if(tcManav.SelectedTab.Name == "tpProduct")
+            {
+                ProductForm pf = new ProductForm();
+                pf.ShowDialog();
+                FillProductGrid();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -90,7 +96,6 @@ namespace Manav_Otomasyonu
                     CustomerDelete();
                     FillCustomerGrid();
                 }
-                
             }
         }
 
