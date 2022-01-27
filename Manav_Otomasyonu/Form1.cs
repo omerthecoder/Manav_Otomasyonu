@@ -104,5 +104,18 @@ namespace Manav_Otomasyonu
             Customer customer = (grdCustomers.DataSource as List<Customer>)[grdCustomers.SelectedRows[0].Index];
             cr.Delete(customer.MusteriID);
         }
+
+        private void grdProducts_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+            ProductForm pf = new ProductForm();
+            Product product = (grdProducts.DataSource as List<Product>)[e.RowIndex];
+            pf.Tag = product.ProductID;
+            pf.ShowDialog();
+            FillProductGrid();
+        }
     }
 }

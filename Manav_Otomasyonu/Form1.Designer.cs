@@ -108,6 +108,7 @@
             this.grdProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdProducts.Size = new System.Drawing.Size(786, 418);
             this.grdProducts.TabIndex = 1;
+            this.grdProducts.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdProducts_CellDoubleClick);
             // 
             // tpCategories
             // 

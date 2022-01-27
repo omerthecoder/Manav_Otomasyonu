@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.txtProductName = new System.Windows.Forms.TextBox();
+            this.cmbCategories = new System.Windows.Forms.ComboBox();
+            this.nuUnitPrice = new System.Windows.Forms.NumericUpDown();
+            this.nuUnitsInStock = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nuUnitPrice)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nuUnitsInStock)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -51,36 +51,46 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Ürün Adı:";
             // 
-            // textBox1
+            // txtProductName
             // 
-            this.textBox1.Location = new System.Drawing.Point(122, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(188, 20);
-            this.textBox1.TabIndex = 1;
+            this.txtProductName.Location = new System.Drawing.Point(122, 28);
+            this.txtProductName.Name = "txtProductName";
+            this.txtProductName.Size = new System.Drawing.Size(188, 20);
+            this.txtProductName.TabIndex = 1;
             // 
-            // comboBox1
+            // cmbCategories
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(122, 54);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(188, 21);
-            this.comboBox1.TabIndex = 2;
+            this.cmbCategories.FormattingEnabled = true;
+            this.cmbCategories.Location = new System.Drawing.Point(122, 54);
+            this.cmbCategories.Name = "cmbCategories";
+            this.cmbCategories.Size = new System.Drawing.Size(188, 21);
+            this.cmbCategories.TabIndex = 2;
             // 
-            // numericUpDown1
+            // nuUnitPrice
             // 
-            this.numericUpDown1.DecimalPlaces = 2;
-            this.numericUpDown1.Location = new System.Drawing.Point(122, 81);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(188, 20);
-            this.numericUpDown1.TabIndex = 3;
+            this.nuUnitPrice.DecimalPlaces = 2;
+            this.nuUnitPrice.Location = new System.Drawing.Point(122, 81);
+            this.nuUnitPrice.Maximum = new decimal(new int[] {
+            1000000000,
+            0,
+            0,
+            0});
+            this.nuUnitPrice.Name = "nuUnitPrice";
+            this.nuUnitPrice.Size = new System.Drawing.Size(188, 20);
+            this.nuUnitPrice.TabIndex = 3;
             // 
-            // numericUpDown2
+            // nuUnitsInStock
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(122, 107);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(188, 20);
-            this.numericUpDown2.TabIndex = 3;
-            this.numericUpDown2.Value = new decimal(new int[] {
+            this.nuUnitsInStock.Location = new System.Drawing.Point(122, 107);
+            this.nuUnitsInStock.Maximum = new decimal(new int[] {
+            -1530494976,
+            232830,
+            0,
+            0});
+            this.nuUnitsInStock.Name = "nuUnitsInStock";
+            this.nuUnitsInStock.Size = new System.Drawing.Size(188, 20);
+            this.nuUnitsInStock.TabIndex = 3;
+            this.nuUnitsInStock.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -121,6 +131,7 @@
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Ekle";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDelete
             // 
@@ -138,10 +149,10 @@
             this.ClientSize = new System.Drawing.Size(354, 199);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nuUnitsInStock);
+            this.Controls.Add(this.nuUnitPrice);
+            this.Controls.Add(this.cmbCategories);
+            this.Controls.Add(this.txtProductName);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -149,8 +160,8 @@
             this.Name = "ProductForm";
             this.Text = "ProductForm";
             this.Load += new System.EventHandler(this.ProductForm_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nuUnitPrice)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nuUnitsInStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,10 +170,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.TextBox txtProductName;
+        private System.Windows.Forms.ComboBox cmbCategories;
+        private System.Windows.Forms.NumericUpDown nuUnitPrice;
+        private System.Windows.Forms.NumericUpDown nuUnitsInStock;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
