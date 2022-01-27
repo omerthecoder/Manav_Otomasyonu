@@ -68,6 +68,7 @@
             this.Controls.Add(this.txtCategory);
             this.Controls.Add(this.label1);
             this.Name = "CategoryForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CategoryForm";
             this.Load += new System.EventHandler(this.CategoryForm_Load);
             this.ResumeLayout(false);

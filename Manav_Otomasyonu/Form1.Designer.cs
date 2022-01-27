@@ -36,8 +36,8 @@
             this.tpCategories = new System.Windows.Forms.TabPage();
             this.grdCategories = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnNew = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.BtnNew = new System.Windows.Forms.Button();
             this.tcManav.SuspendLayout();
             this.tpCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).BeginInit();
@@ -145,16 +145,6 @@
             this.panel1.Size = new System.Drawing.Size(800, 75);
             this.panel1.TabIndex = 0;
             // 
-            // BtnNew
-            // 
-            this.BtnNew.Location = new System.Drawing.Point(4, 3);
-            this.BtnNew.Name = "BtnNew";
-            this.BtnNew.Size = new System.Drawing.Size(140, 68);
-            this.BtnNew.TabIndex = 0;
-            this.BtnNew.Text = "Ekle";
-            this.BtnNew.UseVisualStyleBackColor = true;
-            this.BtnNew.Click += new System.EventHandler(this.BtnNew_Click);
-            // 
             // btnDelete
             // 
             this.btnDelete.Location = new System.Drawing.Point(150, 3);
@@ -165,6 +155,16 @@
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
+            // BtnNew
+            // 
+            this.BtnNew.Location = new System.Drawing.Point(4, 3);
+            this.BtnNew.Name = "BtnNew";
+            this.BtnNew.Size = new System.Drawing.Size(140, 68);
+            this.BtnNew.TabIndex = 0;
+            this.BtnNew.Text = "Ekle";
+            this.BtnNew.UseVisualStyleBackColor = true;
+            this.BtnNew.Click += new System.EventHandler(this.BtnNew_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,6 +173,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tcManav);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Manav Otomasyonu";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tcManav.ResumeLayout(false);
