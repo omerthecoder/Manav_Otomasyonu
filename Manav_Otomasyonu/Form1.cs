@@ -97,6 +97,25 @@ namespace Manav_Otomasyonu
                     FillCustomerGrid();
                 }
             }
+            else if (tcManav.SelectedTab.Name == "tpProduct")
+            {
+                if (grdProducts.SelectedRows[0].Index > -1)
+                {
+                    DialogResult dr = MessageBox.Show("Silmek istediğinize emin misiniz?", "Uyarı!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                    ProductDelete();
+                    FillProductGrid();
+                }
+            }
+        }
+
+        private void ProductDelete()
+        {
+            Product product = (grdProducts.DataSource as List<Product>)[grdProducts.SelectedRows[0].Index];
+            pr.Delete(product.ProductID);
         }
 
         private void CustomerDelete()

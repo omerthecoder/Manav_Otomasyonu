@@ -45,7 +45,28 @@ namespace Manav_Otomasyonu.Repository
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                SqlCommand command = new SqlCommand("delete Product where ProductID=@ProductID ", con);
+                command.Parameters.AddWithValue("@ProductID", id);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
         }
 
         public List<Product> Get()

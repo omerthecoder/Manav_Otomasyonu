@@ -80,5 +80,7 @@ namespace Manav_Otomasyonu
                 pr.Update(selectedProduct);
             }
         }
+
+       
     }
 }
