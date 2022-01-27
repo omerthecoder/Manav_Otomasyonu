@@ -11,9 +11,36 @@ namespace Manav_Otomasyonu.Repository
 {
     public class ProductRepo : RepositoryBase, IRepository<Product>
     {
-        public int Create(Product item)
+        public int Create(Product product)
         {
-            throw new NotImplementedException();
+            int id = 0;
+            try
+            {
+                SqlCommand command = new SqlCommand("Sp_Product_Create_Update", con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@ProductName", product.ProductName);
+                command.Parameters.AddWithValue("@CategoryID", product.CategoryID);
+                command.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
+                command.Parameters.AddWithValue("@UnitsInStock", product.UnitsInStock);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                id = Convert.ToInt32(command.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return id;
         }
 
         public void Delete(int id)
@@ -93,9 +120,36 @@ namespace Manav_Otomasyonu.Repository
             return product;
         }
 
-        public int Update(Product item)
+        public int Update(Product product)
         {
-            throw new NotImplementedException();
+            int id = 0;
+            try
+            {
+                SqlCommand command = new SqlCommand("Sp_Product_Create_Update", con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@ProductID", product.ProductID);
+                command.Parameters.AddWithValue("@ProductName", product.ProductName);
+                command.Parameters.AddWithValue("@CategoryID", product.CategoryID);
+                command.Parameters.AddWithValue("@UnitPrice", product.UnitPrice);
+                command.Parameters.AddWithValue("@UnitsInStock", product.UnitsInStock);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                id = Convert.ToInt32(command.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return id;
         }
     }
 }
