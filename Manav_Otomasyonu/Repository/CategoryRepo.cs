@@ -11,14 +11,59 @@ namespace Manav_Otomasyonu.Repository
 {
     public class CategoryRepo : RepositoryBase, IRepository<Category>
     {
-        public int Create(Category item)
+        public int Create(Category category)
         {
-            throw new NotImplementedException();
+            int id = 0;
+            try
+            {
+                SqlCommand command = new SqlCommand("Sp_Category_Create_Update", con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@CategoryName", category.CategoryName);
+                if (con.State==ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                id = Convert.ToInt32(command.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return id;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                SqlCommand command = new SqlCommand("delete Categories where CategoryID=@CategoryID ", con);
+                command.Parameters.AddWithValue("@CategoryID", id);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
         }
 
         public List<Category> Get()
@@ -92,9 +137,34 @@ namespace Manav_Otomasyonu.Repository
             return category;
         }
 
-        public int Update(Category item)
+        public int Update(Category category)
         {
-            throw new NotImplementedException();
+            int id = 0;
+            try
+            {
+                SqlCommand command = new SqlCommand("Sp_Category_Create_Update", con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@CategoryID", category.CategoryID);
+                command.Parameters.AddWithValue("@CategoryName", category.CategoryName);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                id = Convert.ToInt32(command.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return id;
         }
     }
 }

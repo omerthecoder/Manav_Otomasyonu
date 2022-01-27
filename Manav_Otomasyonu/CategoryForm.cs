@@ -24,7 +24,25 @@ namespace Manav_Otomasyonu
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            FormSave();
+        }
 
+        private void FormSave()
+        {
+            if (selectedCategory==null)
+            {
+                selectedCategory = new Category();
+            }
+            selectedCategory.CategoryName = txtCategory.Text;
+
+            if (Convert.ToInt32(this.Tag) == 0)
+            {
+                this.Tag = catr.Create(selectedCategory);
+            }
+            else
+            {
+                catr.Update(selectedCategory);
+            }
         }
 
         private void CategoryForm_Load(object sender, EventArgs e)
@@ -37,8 +55,14 @@ namespace Manav_Otomasyonu
             int id = Convert.ToInt32(this.Tag);
             if (id>0)
             {
-                selectedCategory=catr.GetById(id);
+                Category category=catr.GetById(id);
+                if (category!=null)
+                {
+                    selectedCategory = category;
+                    txtCategory.Text = category.CategoryName;
+                }
             }
+
             
         }
     }

@@ -115,6 +115,27 @@ namespace Manav_Otomasyonu
                     FillProductGrid();
                 }
             }
+            else if (tcManav.SelectedTab.Name == "tpCategories")
+            {
+                if (grdCategories.SelectedRows[0].Index > -1)
+                {
+                    DialogResult dr = MessageBox.Show("Silmek istediğinize emin misiniz?", "Uyarı!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                    if (dr == DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                    CategoryDelete();
+                    FillCategoryGrid();
+                }
+            }
+
+
+        }
+
+        private void CategoryDelete()
+        {
+            Category category = (grdCategories.DataSource as List<Category>)[grdCategories.SelectedRows[0].Index];
+            catr.Delete(category.CategoryID);
         }
 
         private void ProductDelete()
