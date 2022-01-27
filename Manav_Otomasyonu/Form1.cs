@@ -61,5 +61,10 @@ namespace Manav_Otomasyonu
             
             grdCustomers.DataSource = cr.Get();
         }
+
+        private void grdCustomers_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

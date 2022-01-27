@@ -79,6 +79,7 @@
             this.grdCustomers.Name = "grdCustomers";
             this.grdCustomers.Size = new System.Drawing.Size(786, 418);
             this.grdCustomers.TabIndex = 0;
+            this.grdCustomers.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCustomers_CellContentDoubleClick);
             // 
             // tpProduct
             // 
