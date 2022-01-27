@@ -38,6 +38,11 @@ namespace Manav_Otomasyonu
                 ProductForm pf = new ProductForm();
                 pf.ShowDialog();
                 FillProductGrid();
+            }else if (tcManav.SelectedTab.Name == "tpCategories")
+            {
+                CategoryForm catf = new CategoryForm();
+                catf.ShowDialog();
+                FillCategoryGrid();
             }
         }
 
@@ -135,6 +140,19 @@ namespace Manav_Otomasyonu
             pf.Tag = product.ProductID;
             pf.ShowDialog();
             FillProductGrid();
+        }
+
+        private void grdCategories_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+            CategoryForm catf = new CategoryForm();
+            Category category = (grdCategories.DataSource as List<Category>)[e.RowIndex];
+            catf.Tag = category.CategoryID;
+            catf.ShowDialog();
+            FillCategoryGrid();
         }
     }
 }

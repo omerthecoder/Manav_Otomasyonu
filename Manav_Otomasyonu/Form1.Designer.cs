@@ -133,6 +133,7 @@
             this.grdCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdCategories.Size = new System.Drawing.Size(786, 418);
             this.grdCategories.TabIndex = 1;
+            this.grdCategories.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCategories_CellDoubleClick);
             // 
             // panel1
             // 

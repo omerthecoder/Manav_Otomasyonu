@@ -62,7 +62,35 @@ namespace Manav_Otomasyonu.Repository
 
         public Category GetById(int id)
         {
-            throw new NotImplementedException();
+            List<Category> categories = new List<Category>();
+            try
+            {
+                SqlCommand command = new SqlCommand("select CategoryID,CategoryName from Categories where CategoryID=@CategoryID", this.con);
+                command.Parameters.AddWithValue("@CategoryID", id);
+                if (this.con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    Category category = CategoryMapping(reader);
+                    categories.Add(category);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return categories;
         }
 
         public int Update(Category item)
