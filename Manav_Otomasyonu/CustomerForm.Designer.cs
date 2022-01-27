@@ -185,6 +185,7 @@
             this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Ekle";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDelete
             // 
@@ -220,6 +221,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CustomerForm";
             this.Text = "CustomerForm";
+            this.Load += new System.EventHandler(this.CustomerForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

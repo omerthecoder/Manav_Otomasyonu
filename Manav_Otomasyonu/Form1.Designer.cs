@@ -75,11 +75,14 @@
             this.grdCustomers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCustomers.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdCustomers.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.grdCustomers.Location = new System.Drawing.Point(3, 3);
+            this.grdCustomers.MultiSelect = false;
             this.grdCustomers.Name = "grdCustomers";
+            this.grdCustomers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdCustomers.Size = new System.Drawing.Size(786, 418);
             this.grdCustomers.TabIndex = 0;
-            this.grdCustomers.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCustomers_CellContentDoubleClick);
+            this.grdCustomers.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grdCustomers_CellDoubleClick);
             // 
             // tpProduct
             // 
@@ -97,8 +100,11 @@
             this.grdProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdProducts.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdProducts.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.grdProducts.Location = new System.Drawing.Point(3, 3);
+            this.grdProducts.MultiSelect = false;
             this.grdProducts.Name = "grdProducts";
+            this.grdProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdProducts.Size = new System.Drawing.Size(786, 418);
             this.grdProducts.TabIndex = 1;
             // 
@@ -118,8 +124,11 @@
             this.grdCategories.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grdCategories.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grdCategories.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grdCategories.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.grdCategories.Location = new System.Drawing.Point(3, 3);
+            this.grdCategories.MultiSelect = false;
             this.grdCategories.Name = "grdCategories";
+            this.grdCategories.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grdCategories.Size = new System.Drawing.Size(786, 418);
             this.grdCategories.TabIndex = 1;
             // 

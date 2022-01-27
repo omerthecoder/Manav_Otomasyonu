@@ -29,8 +29,9 @@ namespace Manav_Otomasyonu
         {
             if (tcManav.SelectedTab.Name=="tpCustomer")
             {
-                MessageBox.Show("Test");
-                
+                CustomerForm cf = new CustomerForm();
+                cf.ShowDialog();
+                FillCustomerGrid();
             }
         }
 
@@ -62,9 +63,17 @@ namespace Manav_Otomasyonu
             grdCustomers.DataSource = cr.Get();
         }
 
-        private void grdCustomers_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void grdCustomers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex == -1)
+            {
+                return;
+            }
+            Customer customer = (grdCustomers.DataSource as List<Customer>)[e.RowIndex];
+            CustomerForm cf = new CustomerForm();
+            cf.Tag = customer.MusteriID;
+            cf.ShowDialog();
+            FillCustomerGrid();
         }
     }
 }

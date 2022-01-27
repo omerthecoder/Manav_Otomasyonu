@@ -11,7 +11,7 @@ namespace Manav_Otomasyonu.Repository
 {
     public class CategoryRepo : RepositoryBase, IRepository<Category>
     {
-        public void Create(Category item)
+        public int Create(Category item)
         {
             throw new NotImplementedException();
         }
@@ -65,7 +65,7 @@ namespace Manav_Otomasyonu.Repository
             throw new NotImplementedException();
         }
 
-        public void Update(Category item)
+        public int Update(Category item)
         {
             throw new NotImplementedException();
         }

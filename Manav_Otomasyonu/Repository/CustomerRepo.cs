@@ -17,15 +17,66 @@ namespace Manav_Otomasyonu.Repository
         {
 
         }
-        public void Create(Customer item)
+        public int Create(Customer customer)
         {
+            int id = 0;
+            try
+            {
+                SqlCommand command = new SqlCommand("Sp_Customer_Create_Update", con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@FirstName", customer.FirstName);
+                command.Parameters.AddWithValue("@LastName", customer.LastName);
+                command.Parameters.AddWithValue("@Country", customer.Country);
+                command.Parameters.AddWithValue("@City", customer.City);
+                command.Parameters.AddWithValue("@Region", customer.Region);
+                command.Parameters.AddWithValue("@PostalCode", customer.PostalCode);
+                command.Parameters.AddWithValue("@Phone", customer.Phone);
+                command.Parameters.AddWithValue("@Address", customer.Address);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                id = Convert.ToInt32(command.ExecuteScalar());
+            }
+            catch (Exception)
+            {
 
-            throw new NotImplementedException();
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return id;
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                SqlCommand command = new SqlCommand("delete Customer where MusteriID=@MusteriID ", con);
+                command.Parameters.AddWithValue("@MusteriID", id);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                command.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally 
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
         }
 
         public List<Customer> Get()
@@ -62,12 +113,71 @@ namespace Manav_Otomasyonu.Repository
 
         public Customer GetById(int id)
         {
-            throw new NotImplementedException();
+            Customer customer = new Customer();
+            try
+            {
+                SqlCommand command = new SqlCommand("select MusteriID,FirstName,LastName,Country,City,Region,PostalCode,Phone,Address from customer where MusteriID=@p1", this.con);
+                command.Parameters.AddWithValue("@p1", id);
+                if (this.con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                SqlDataReader reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    customer = CustomerMapping(reader);
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return customer;
         }
 
-        public void Update(Customer item)
+        public int Update(Customer customer)
         {
-            throw new NotImplementedException();
+            int id = 0;
+            try
+            {
+                SqlCommand command = new SqlCommand("Sp_Customer_Create_Update", con);
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.AddWithValue("@MusteriID", customer.MusteriID);
+                command.Parameters.AddWithValue("@FirstName", customer.FirstName);
+                command.Parameters.AddWithValue("@LastName", customer.LastName);
+                command.Parameters.AddWithValue("@Country", customer.Country);
+                command.Parameters.AddWithValue("@City", customer.City);
+                command.Parameters.AddWithValue("@Region", customer.Region);
+                command.Parameters.AddWithValue("@PostalCode", customer.PostalCode);
+                command.Parameters.AddWithValue("@Phone", customer.Phone);
+                command.Parameters.AddWithValue("@Address", customer.Address);
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                id = Convert.ToInt32(command.ExecuteScalar());
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
+                {
+                    con.Close();
+                }
+            }
+            return id;
         }
         private Customer CustomerMapping(SqlDataReader reader)
         {

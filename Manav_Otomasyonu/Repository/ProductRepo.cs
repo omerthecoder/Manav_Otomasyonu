@@ -11,7 +11,7 @@ namespace Manav_Otomasyonu.Repository
 {
     public class ProductRepo : RepositoryBase, IRepository<Product>
     {
-        public void Create(Product item)
+        public int Create(Product item)
         {
             throw new NotImplementedException();
         }
@@ -65,7 +65,7 @@ namespace Manav_Otomasyonu.Repository
             throw new NotImplementedException();
         }
 
-        public void Update(Product item)
+        public int Update(Product item)
         {
             throw new NotImplementedException();
         }
