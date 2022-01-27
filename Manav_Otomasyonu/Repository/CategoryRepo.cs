@@ -62,7 +62,7 @@ namespace Manav_Otomasyonu.Repository
 
         public Category GetById(int id)
         {
-            List<Category> categories = new List<Category>();
+            Category category = new Category();
             try
             {
                 SqlCommand command = new SqlCommand("select CategoryID,CategoryName from Categories where CategoryID=@CategoryID", this.con);
@@ -74,8 +74,7 @@ namespace Manav_Otomasyonu.Repository
                 SqlDataReader reader = command.ExecuteReader();
                 while (reader.Read())
                 {
-                    Category category = CategoryMapping(reader);
-                    categories.Add(category);
+                    category = CategoryMapping(reader);
                 }
             }
             catch (Exception)
@@ -90,7 +89,7 @@ namespace Manav_Otomasyonu.Repository
                     con.Close();
                 }
             }
-            return categories;
+            return category;
         }
 
         public int Update(Category item)
