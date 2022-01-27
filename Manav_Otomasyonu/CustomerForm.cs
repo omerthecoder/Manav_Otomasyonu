@@ -79,5 +79,10 @@ namespace Manav_Otomasyonu
                 cr.Update(SelectedCustomer);
             }
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

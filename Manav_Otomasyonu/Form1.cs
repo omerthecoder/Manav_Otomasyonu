@@ -75,5 +75,29 @@ namespace Manav_Otomasyonu
             cf.ShowDialog();
             FillCustomerGrid();
         }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            if (tcManav.SelectedTab.Name == "tpCustomer")
+            {
+                if (grdCustomers.SelectedRows[0].Index>-1)
+                {
+                    DialogResult dr=MessageBox.Show("Silmek istediğinize emin misiniz?","Uyarı!",MessageBoxButtons.OKCancel,MessageBoxIcon.Warning);
+                    if (dr==DialogResult.Cancel)
+                    {
+                        return;
+                    }
+                    CustomerDelete();
+                    FillCustomerGrid();
+                }
+                
+            }
+        }
+
+        private void CustomerDelete()
+        {
+            Customer customer = (grdCustomers.DataSource as List<Customer>)[grdCustomers.SelectedRows[0].Index];
+            cr.Delete(customer.MusteriID);
+        }
     }
 }

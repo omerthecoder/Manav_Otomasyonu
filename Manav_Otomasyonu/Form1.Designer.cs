@@ -37,6 +37,7 @@
             this.grdCategories = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnNew = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.tcManav.SuspendLayout();
             this.tpCustomer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grdCustomers)).BeginInit();
@@ -134,6 +135,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btnDelete);
             this.panel1.Controls.Add(this.BtnNew);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 375);
@@ -150,6 +152,16 @@
             this.BtnNew.Text = "Ekle";
             this.BtnNew.UseVisualStyleBackColor = true;
             this.BtnNew.Click += new System.EventHandler(this.BtnNew_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Location = new System.Drawing.Point(150, 3);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(135, 68);
+            this.btnDelete.TabIndex = 1;
+            this.btnDelete.Text = "Sil";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // Form1
             // 
@@ -184,6 +196,7 @@
         private System.Windows.Forms.DataGridView grdCustomers;
         private System.Windows.Forms.DataGridView grdProducts;
         private System.Windows.Forms.DataGridView grdCategories;
+        private System.Windows.Forms.Button btnDelete;
     }
 }
 
