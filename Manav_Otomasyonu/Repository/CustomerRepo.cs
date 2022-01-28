@@ -12,7 +12,6 @@ namespace Manav_Otomasyonu.Repository
     using System.Data;
     public class CustomerRepo : RepositoryBase, IRepository<Customer>
     {
-
         public CustomerRepo() : base()
         {
 
@@ -22,6 +21,22 @@ namespace Manav_Otomasyonu.Repository
             int id = 0;
             try
             {
+                if (customer.FirstName == "")
+                {
+                    throw new Exception("FirstName alanı boş bırakılamaz");
+                }
+                if (customer.LastName == "")
+                {
+                    throw new Exception("LastName alanı boş bırakılamaz");
+                }
+                if (customer.Phone == "")
+                {
+                    throw new Exception("Phone alanı boş bırakılamaz");
+                }
+                if (customer.Phone.Length<14)
+                {
+                    throw new Exception("Telefonu eksik yada hatalı girdiniz");
+                }
                 SqlCommand command = new SqlCommand("Sp_Customer_Create_Update", con);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@FirstName", customer.FirstName);
@@ -38,10 +53,9 @@ namespace Manav_Otomasyonu.Repository
                 }
                 id = Convert.ToInt32(command.ExecuteScalar());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -98,7 +112,6 @@ namespace Manav_Otomasyonu.Repository
             }
             catch (Exception)
             {
-
                 throw;
             }
             finally
@@ -148,6 +161,18 @@ namespace Manav_Otomasyonu.Repository
             int id = 0;
             try
             {
+                if (customer.FirstName == "")
+                {
+                    throw new Exception("FirstName alanı boş bırakılamaz");
+                }
+                if (customer.FirstName == "")
+                {
+                    throw new Exception("LastName alanı boş bırakılamaz");
+                }
+                if (customer.Phone=="")
+                {
+                    throw new Exception("Phone alanı boş bırakılamaz");
+                }
                 SqlCommand command = new SqlCommand("Sp_Customer_Create_Update", con);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@MusteriID", customer.MusteriID);

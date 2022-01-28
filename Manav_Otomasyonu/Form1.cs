@@ -175,5 +175,68 @@ namespace Manav_Otomasyonu
             catf.ShowDialog();
             FillCategoryGrid();
         }
+
+        private void btnCustomerAdd_Click(object sender, EventArgs e)
+        {
+            CustomerForm cf = new CustomerForm();
+            cf.ShowDialog();
+            FillCustomerGrid();
+        }
+
+        private void btnCustomerDelete_Click(object sender, EventArgs e)
+        {
+            if (grdCustomers.SelectedRows[0].Index > -1)
+            {
+                DialogResult dr = MessageBox.Show("Silmek istediğinize emin misiniz?", "Uyarı!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Cancel)
+                {
+                    return;
+                }
+                CustomerDelete();
+                FillCustomerGrid();
+            }
+        }
+
+        private void btnProductAdd_Click(object sender, EventArgs e)
+        {
+            ProductForm pf = new ProductForm();
+            pf.ShowDialog();
+            FillProductGrid();
+        }
+
+        private void btnProductDelete_Click(object sender, EventArgs e)
+        {
+            if (grdProducts.SelectedRows[0].Index > -1)
+            {
+                DialogResult dr = MessageBox.Show("Silmek istediğinize emin misiniz?", "Uyarı!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Cancel)
+                {
+                    return;
+                }
+                ProductDelete();
+                FillProductGrid();
+            }
+        }
+
+        private void btnCategoryAdd_Click(object sender, EventArgs e)
+        {
+            CategoryForm catf = new CategoryForm();
+            catf.ShowDialog();
+            FillCategoryGrid();
+        }
+
+        private void btnCategoryDelete_Click(object sender, EventArgs e)
+        {
+            if (grdCategories.SelectedRows[0].Index > -1)
+            {
+                DialogResult dr = MessageBox.Show("Silmek istediğinize emin misiniz?", "Uyarı!", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+                if (dr == DialogResult.Cancel)
+                {
+                    return;
+                }
+                CategoryDelete();
+                FillCategoryGrid();
+            }
+        }
     }
 }

@@ -16,6 +16,10 @@ namespace Manav_Otomasyonu.Repository
             int id = 0;
             try
             {
+                if (category.CategoryName == "")
+                {
+                    throw new Exception("CategoryName alanı boş bırakılamaz");
+                }
                 SqlCommand command = new SqlCommand("Sp_Category_Create_Update", con);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@CategoryName", category.CategoryName);
@@ -25,10 +29,9 @@ namespace Manav_Otomasyonu.Repository
                 }
                 id = Convert.ToInt32(command.ExecuteScalar());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -140,8 +143,13 @@ namespace Manav_Otomasyonu.Repository
         public int Update(Category category)
         {
             int id = 0;
+            
             try
             {
+                if (category.CategoryName == "")
+                {
+                    throw new Exception("CategoryName alanı boş bırakılamaz");
+                }
                 SqlCommand command = new SqlCommand("Sp_Category_Create_Update", con);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@CategoryID", category.CategoryID);
@@ -152,10 +160,9 @@ namespace Manav_Otomasyonu.Repository
                 }
                 id = Convert.ToInt32(command.ExecuteScalar());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
             finally
             {

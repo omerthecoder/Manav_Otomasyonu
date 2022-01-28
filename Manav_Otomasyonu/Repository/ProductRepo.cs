@@ -16,6 +16,14 @@ namespace Manav_Otomasyonu.Repository
             int id = 0;
             try
             {
+                if (product.ProductName == "")
+                {
+                    throw new Exception("ProductName alanı boş bırakılamaz");
+                }
+                if (product.CategoryID == 0)
+                {
+                    throw new Exception("CategoryID alanı boş bırakılamaz");
+                }
                 SqlCommand command = new SqlCommand("Sp_Product_Create_Update", con);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@ProductName", product.ProductName);
@@ -28,10 +36,9 @@ namespace Manav_Otomasyonu.Repository
                 }
                 id = Convert.ToInt32(command.ExecuteScalar());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
             finally
             {

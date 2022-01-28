@@ -84,5 +84,10 @@ namespace Manav_Otomasyonu
         {
 
         }
+
+        private void txtPhone_Click(object sender, EventArgs e)
+        {
+            this.txtPhone.Select(1, 0);
+        }
     }
 }
