@@ -110,9 +110,9 @@ namespace Manav_Otomasyonu.Repository
                     customers.Add(customer);
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
             finally
             {

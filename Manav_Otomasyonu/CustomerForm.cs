@@ -52,6 +52,7 @@ namespace Manav_Otomasyonu
         private void btnSave_Click(object sender, EventArgs e)
         {
             FormSave();
+            Close();
         }
 
         private void FormSave()
