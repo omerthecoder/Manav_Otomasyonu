@@ -61,17 +61,35 @@ namespace Manav_Otomasyonu
         private void FillCategoryGrid()
         {
             grdCategories.DataSource = catr.Get();
+            grdCategories.Columns[0].Visible = false;
+            grdCategories.Columns[1].HeaderText = "Kategori Adı";
         }
 
         private void FillProductGrid()
         {
             grdProducts.DataSource = pr.Get();
+            grdProducts.Columns[0].Visible = false;
+            grdProducts.Columns[2].Visible = false;
+            grdProducts.Columns[1].HeaderText = "Ürün Adı";
+            grdProducts.Columns[3].HeaderText = "Ürün Fiyatı";
+            grdProducts.Columns[4].HeaderText = "Ürün Stok Miktarı";
+
         }
 
         private void FillCustomerGrid()
         {
-            
             grdCustomers.DataSource = cr.Get();
+            grdCustomers.Columns[0].Visible = false;
+            grdCustomers.Columns[1].HeaderText = "Ad";
+            grdCustomers.Columns[2].HeaderText = "Soyad";
+            grdCustomers.Columns[3].HeaderText = "Ülke";
+            grdCustomers.Columns[4].HeaderText = "Şehir";
+            grdCustomers.Columns[5].HeaderText = "Bölge";
+            grdCustomers.Columns[6].HeaderText = "Posta Kodu";
+            grdCustomers.Columns[7].HeaderText = "Telefon Numarası";
+            grdCustomers.Columns[8].HeaderText = "Adres";
+
+
         }
 
         private void grdCustomers_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

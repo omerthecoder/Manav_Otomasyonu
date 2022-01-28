@@ -165,7 +165,7 @@ namespace Manav_Otomasyonu.Repository
                 {
                     throw new Exception("FirstName alanı boş bırakılamaz");
                 }
-                if (customer.FirstName == "")
+                if (customer.LastName == "")
                 {
                     throw new Exception("LastName alanı boş bırakılamaz");
                 }
@@ -190,10 +190,9 @@ namespace Manav_Otomasyonu.Repository
                 }
                 id = Convert.ToInt32(command.ExecuteScalar());
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                System.Windows.Forms.MessageBox.Show(ex.Message);
             }
             finally
             {
