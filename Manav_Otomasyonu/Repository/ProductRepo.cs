@@ -111,7 +111,12 @@ namespace Manav_Otomasyonu.Repository
 
         private Product ProductMapping(SqlDataReader reader)
         {
-            Product product = new Product() {ProductID=Convert.ToInt32(reader["ProductID"]),ProductName=reader["ProductName"].ToString(),CategoryID=Convert.ToInt32(reader["CategoryID"]),UnitPrice=Convert.ToDecimal(reader["UnitPrice"]),UnitsInStock=Convert.ToInt32(reader["UnitsInStock"]) };
+            Product product = new Product() {
+                ProductID=Convert.ToInt32(reader["ProductID"]),
+                ProductName=reader["ProductName"].ToString(),
+                CategoryID=Convert.ToInt32(reader["CategoryID"]),
+                UnitPrice=Convert.ToDecimal(reader["UnitPrice"]),
+                UnitsInStock=Convert.ToInt32(reader["UnitsInStock"]) };
             return product;
         }
 

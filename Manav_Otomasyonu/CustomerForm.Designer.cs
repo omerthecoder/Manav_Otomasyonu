@@ -38,13 +38,13 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtFirstName = new System.Windows.Forms.TextBox();
             this.txtLastName = new System.Windows.Forms.TextBox();
-            this.txtCountry = new System.Windows.Forms.TextBox();
-            this.txtCity = new System.Windows.Forms.TextBox();
-            this.txtRegion = new System.Windows.Forms.TextBox();
             this.txtPostalCode = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.RichTextBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtPhone = new System.Windows.Forms.MaskedTextBox();
+            this.cmbCountry = new System.Windows.Forms.ComboBox();
+            this.cmbSehirler = new System.Windows.Forms.ComboBox();
+            this.cmbIlce = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -79,18 +79,18 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(27, 144);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.Size = new System.Drawing.Size(15, 13);
             this.label4.TabIndex = 1;
-            this.label4.Text = "Şehir:";
+            this.label4.Text = "İl:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(27, 175);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(37, 13);
+            this.label5.Size = new System.Drawing.Size(27, 13);
             this.label5.TabIndex = 1;
-            this.label5.Text = "Bölge:";
+            this.label5.Text = "İlçe:";
             // 
             // label6
             // 
@@ -133,27 +133,6 @@
             this.txtLastName.Size = new System.Drawing.Size(219, 20);
             this.txtLastName.TabIndex = 2;
             // 
-            // txtCountry
-            // 
-            this.txtCountry.Location = new System.Drawing.Point(112, 110);
-            this.txtCountry.Name = "txtCountry";
-            this.txtCountry.Size = new System.Drawing.Size(219, 20);
-            this.txtCountry.TabIndex = 2;
-            // 
-            // txtCity
-            // 
-            this.txtCity.Location = new System.Drawing.Point(112, 141);
-            this.txtCity.Name = "txtCity";
-            this.txtCity.Size = new System.Drawing.Size(219, 20);
-            this.txtCity.TabIndex = 2;
-            // 
-            // txtRegion
-            // 
-            this.txtRegion.Location = new System.Drawing.Point(112, 168);
-            this.txtRegion.Name = "txtRegion";
-            this.txtRegion.Size = new System.Drawing.Size(219, 20);
-            this.txtRegion.TabIndex = 2;
-            // 
             // txtPostalCode
             // 
             this.txtPostalCode.Location = new System.Drawing.Point(112, 199);
@@ -188,18 +167,44 @@
             this.txtPhone.TabIndex = 5;
             this.txtPhone.Click += new System.EventHandler(this.txtPhone_Click);
             // 
+            // cmbCountry
+            // 
+            this.cmbCountry.Enabled = false;
+            this.cmbCountry.FormattingEnabled = true;
+            this.cmbCountry.Location = new System.Drawing.Point(112, 110);
+            this.cmbCountry.Name = "cmbCountry";
+            this.cmbCountry.Size = new System.Drawing.Size(219, 21);
+            this.cmbCountry.TabIndex = 6;
+            // 
+            // cmbSehirler
+            // 
+            this.cmbSehirler.FormattingEnabled = true;
+            this.cmbSehirler.Location = new System.Drawing.Point(112, 141);
+            this.cmbSehirler.Name = "cmbSehirler";
+            this.cmbSehirler.Size = new System.Drawing.Size(219, 21);
+            this.cmbSehirler.TabIndex = 6;
+            this.cmbSehirler.SelectedIndexChanged += new System.EventHandler(this.cmbSehirler_SelectedIndexChanged);
+            // 
+            // cmbIlce
+            // 
+            this.cmbIlce.FormattingEnabled = true;
+            this.cmbIlce.Location = new System.Drawing.Point(112, 172);
+            this.cmbIlce.Name = "cmbIlce";
+            this.cmbIlce.Size = new System.Drawing.Size(219, 21);
+            this.cmbIlce.TabIndex = 6;
+            // 
             // CustomerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 442);
+            this.Controls.Add(this.cmbIlce);
+            this.Controls.Add(this.cmbSehirler);
+            this.Controls.Add(this.cmbCountry);
             this.Controls.Add(this.txtPhone);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtAddress);
-            this.Controls.Add(this.txtCity);
             this.Controls.Add(this.txtPostalCode);
-            this.Controls.Add(this.txtCountry);
-            this.Controls.Add(this.txtRegion);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.label8);
@@ -231,12 +236,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtFirstName;
         private System.Windows.Forms.TextBox txtLastName;
-        private System.Windows.Forms.TextBox txtCountry;
-        private System.Windows.Forms.TextBox txtCity;
-        private System.Windows.Forms.TextBox txtRegion;
         private System.Windows.Forms.TextBox txtPostalCode;
         private System.Windows.Forms.RichTextBox txtAddress;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.MaskedTextBox txtPhone;
+        private System.Windows.Forms.ComboBox cmbCountry;
+        private System.Windows.Forms.ComboBox cmbSehirler;
+        private System.Windows.Forms.ComboBox cmbIlce;
     }
 }

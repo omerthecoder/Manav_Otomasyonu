@@ -84,7 +84,7 @@ namespace Manav_Otomasyonu
             grdCustomers.Columns[2].HeaderText = "Soyad";
             grdCustomers.Columns[3].HeaderText = "Ülke";
             grdCustomers.Columns[4].HeaderText = "Şehir";
-            grdCustomers.Columns[5].HeaderText = "Bölge";
+            grdCustomers.Columns[5].HeaderText = "İlçe";
             grdCustomers.Columns[6].HeaderText = "Posta Kodu";
             grdCustomers.Columns[7].HeaderText = "Telefon Numarası";
             grdCustomers.Columns[8].HeaderText = "Adres";
